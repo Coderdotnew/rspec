@@ -1,28 +1,28 @@
 # rspec
-**Rspec** is a Ruby testing library that is used to for **Test Driven Development** or **TDD**. Think of a library as an extension of a language that uses the same syntax and structure, but has some added keywords and functionality. The added functionality of Rspec is that it can test our Ruby code to ensure a program is running smoothly without syntax or logic error and returns the expected values.  
+**RSpec** is a Ruby testing library that is used to for **Test Driven Development** or **TDD**. Think of a library as an extension of a language that uses the same syntax and structure, but has some added keywords and functionality. The added functionality of RSpec is that it can test our Ruby code to ensure a program is running smoothly without syntax or logic error and returns the expected values.  
 ![1](http://i.imgur.com/oQKDiVO.gif)
 
-Rspec is a Ruby **gem** that is downloaded for most of the code challenges. A Ruby gem, as you will learn, is pre-packaged code that can be downloaded and used in your program. 
+RSpec is a Ruby **gem** that is downloaded for most of the code challenges. A Ruby gem, as you will learn, is pre-packaged code that can be downloaded and used in your program. 
 
-#### Note: Each Ruby Rspec file used in this course will be fully written and linked. Your job is to focus on writing top-notch Ruby code as well as being able to read and understand the Rspec file to ensure your code will pass the tests. You *do not* need to write the Rspec files, but reading an Rspec file is critical to your success.
+#### Note: Each Ruby RSpec file used in this course will be fully written and linked. Your job is to focus on writing top-notch Ruby code as well as being able to read and understand the RSpec file to ensure your code will pass the tests. You *do not* need to write the RSpec files, but reading an RSpec file is critical to your success.
 
 # why_TDD?
 Think back to your last essay your wrote for your English class. Did you create a detailed outline before writing your essay? Did you proofread it? Did you run a spellcheck on it? Did you have family member or friend read it over for you? If you didn't, you likely received your test back with some red marks from your teacher. These red marks might indicate spelling errors, grammar errors, run-on sentences, incoherent logic or structure, and other mistakes made.  
 
-Think of Test-Driven Development as way for the programmer to map out the program, descriptions of how the program should run, and most importantly, what return values should be expected. Let's checkout how Rspec works.
+Think of Test-Driven Development as way for the programmer to map out the program, descriptions of how the program should run, and most importantly, what return values should be expected. Let's checkout how RSpec works.
 
 # rspec_syntax
-An Rspec file is connect to the Ruby file it is running the tests for. The files will already be linked for you, but here's what this looks like.  
+An RSpec file is connect to the Ruby file it is running the tests for. The files will already be linked for you, but here's what this looks like.  
 
-Let's imagine we are working in a Ruby file, `ruby.rb`. By convention, Rspec requires the testing file to be titled the exact same thing, with `_spec` added to indicate it is an Rspec file. Therefore, our two files are:  
+Let's imagine we are working in a Ruby file, `ruby.rb`. By convention, RSpec requires the testing file to be titled the exact same thing, with `_spec` added to indicate it is an RSpec file. Therefore, our two files are:  
 1. `ruby.rb`
 2. `ruby_spec.rb`  
 Notice, the file extension is still `.rb` as this is written in Ruby  
 
-(Just to quiz you, what is our Rspec file called if the Ruby file is saved as `my_program.rb`?  
+(Just to quiz you, what is our RSpec file called if the Ruby file is saved as `my_program.rb`?  
 That's right... `my_program_spec.rb`)
 
-Each Rspec test needs to be organized in a directory as follows:  
+Each RSpec test needs to be organized in a directory as follows:  
 ```bash
 sinatra_app_directory
 ├── directory_name
@@ -33,8 +33,8 @@ sinatra_app_directory
 ```
 - Just to recap this structure:
   - The `directory_name` will be the name of the code challenge directory. This directory will contain the `spec` directory as well as the Ruby file.
-  - The `ruby_spec.rb` is the rspec file. This contains the tests. You will read this thoroughly but **do not alter this code**
-  - The `spec_helper.rb` file is auto-generated once the rspec gem is installed. This connects to the rspec library and configures our code for us. **Do not alter this code, either**  
+  - The `ruby_spec.rb` is the RSpec file. This contains the tests. You will read this thoroughly but **do not alter this code**
+  - The `spec_helper.rb` file is auto-generated once the RSpec gem is installed. This connects to the RSpec library and configures our code for us. **Do not alter this code, either**  
 
 Let's check out the syntax, finally...
 
@@ -43,9 +43,9 @@ Let's check out the syntax, finally...
 require_relative './spec_helper'
 require_relative '../ruby.rb'
 ```
-- Each Rspec file will `require_relative`, meaning it is linking to another file in the directory
-  - We need to link to `spec_helper.rb` because this configures our rspec file
-  - We need to link to `ruby.rb` as this is the Ruby code the Rspec file is testing  
+- Each RSpec file will `require_relative`, meaning it is linking to another file in the directory
+  - We need to link to `spec_helper.rb` because this configures our RSpec file
+  - We need to link to `ruby.rb` as this is the Ruby code the RSpec file is testing  
 
 ```ruby
 # ruby_spec.rb
@@ -81,7 +81,7 @@ end
 # rspec_and_puts
 In our the first 3 classes, there are tests that require an printed output to the screen. This requires the `puts` or `print` keyword.  
 
-The tricky thing is that using `puts` or `print` leaves us with a reutrn value of `nil`, which isn't helpful to an Rspec test that specifically tests for a return value.  
+The tricky thing is that using `puts` or `print` leaves us with a reutrn value of `nil`, which isn't helpful to an RSpec test that specifically tests for a return value.  
 
 We need to use specific syntax for this instance.
 ```ruby
@@ -97,12 +97,12 @@ describe "#hello" do
 end
 ```
 - Don't worry too much about `$stdout` (standard output). This is just a placeholder acknoledging there will be an output rather than a return value.
-- To make this even clearer, `:puts` is explicitly included in the Rspec test as well as the expected string: `"Hello, Barack Obama!"`
-- Laslty, and perhaps most importantly, Rspec *calls* the method for us. We do *not* need to call the method. 
+- To make this even clearer, `:puts` is explicitly included in the RSpec test as well as the expected string: `"Hello, Barack Obama!"`
+- Laslty, and perhaps most importantly, RSpec *calls* the method for us. We do *not* need to call the method. 
 - `hello` is explicilty called on the next line.
 
 # rspec_and_return
-A majority of our Rspec tests will tests for specific return values (i.e. not using `puts`). This syntax is a bit more straightforward. 
+A majority of our RSpec tests will tests for specific return values (i.e. not using `puts`). This syntax is a bit more straightforward. 
 ```ruby
 # ruby_spec.rb
 require_relative './spec_helper'
@@ -114,11 +114,11 @@ describe "#hello" do
     end
 end
 ``` 
-- If this is read across it might sound something like: The Rspec test expects the `hello` method to **eq**uate to a return value of `"Hello, Barack Obama!"`
+- If this is read across it might sound something like: The RSpec test expects the `hello` method to **eq**uate to a return value of `"Hello, Barack Obama!"`
 - In the case of explicit returns, the method is called inside the parentheses after the `expect` keyword
 
 # running_rspec_tests
-Great! Now we have an Rspec file that expects the following from our Ruby file:
+Great! Now we have an RSpec file that expects the following from our Ruby file:
 1. A method titled `hello`
 2. The `hello` method is expected to print the string `"Hello, Barack Obama!"` to the screen using `puts`
 3. The `hello` method is expected to return the string value `"Hello, Barack Obama!"`  
@@ -130,7 +130,7 @@ def hello
   puts "Hello, #{name}!"
 end
 ```
-- To run the Rspec test, we need to:
+- To run the RSpec test, we need to:
   1. Be in the root directory of the current challenge
   2. Type the command `rspec` into your Terminal
 
@@ -158,7 +158,7 @@ Finished in 0.04297 seconds (files took 0.1844 seconds to load)
 ```
 - This shows we passed one test (printing the expected string to the screen)  
 - However, we failed the second test.  
-  - Rspec tells us it `expected: "Hello, Barack Obama!"` but `got: nil`
+  - RSpec tells us it `expected: "Hello, Barack Obama!"` but `got: nil`
 
 We can easily fix this by adding another line the will also return the expected value
 
@@ -184,7 +184,7 @@ Now we can see we passed both tests!
 # rspec_and_arguments
 Lastly, let's review what it looks like when our methods have arguments. This is going to be very similar to our previous example without arguments.
 
-Because our methods are explicitly called in the Rspec file, we need to inform the test that we are also expecting an argument.
+Because our methods are explicitly called in the RSpec file, we need to inform the test that we are also expecting an argument.
 ```ruby
 require_relative './spec_helper'
 require_relative '../ruby.rb'
@@ -201,8 +201,8 @@ describe "#ruby" do
 end
 ```
 - This is almost exactly the same, with the exception of parameters being passed in where the arguments were defined.
-- Notice the actual value must be passed in in the Rspec test
-- This is the same as calling the method yourself within the Ruby file (but now the Rspec file is calling the method for us)
+- Notice the actual value must be passed in in the RSpec test
+- This is the same as calling the method yourself within the Ruby file (but now the RSpec file is calling the method for us)
 
 Now we need to slightly rearrange our Ruby code...
 ```ruby
@@ -212,10 +212,10 @@ def hello(name)
 end
 ```
 - When `rspec` is run in the Terminal both our tests pass for the `hello` method now that
-- Note: If we do not define an argument in our Ruby file, we will get an error stating Rspec expected 1 argument but the Ruby file defined 0 arguments  
+- Note: If we do not define an argument in our Ruby file, we will get an error stating RSpec expected 1 argument but the Ruby file defined 0 arguments  
 
 # documentation
-Rspec documentation: [RSpec](https://relishapp.com/rspec) 
+RSpec documentation: [RSpec](https://relishapp.com/rspec) 
 
 RSpec will become easier to read and naviagte as you begin completing challenges. There are many other tests RSpec can run which you will run into as the challenges increase in complexity.
 
