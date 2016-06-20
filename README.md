@@ -222,4 +222,5 @@ RSpec will become easier to read and naviagte as you begin completing challenges
 #### TEST AWAY!  
 ![2](http://i.imgur.com/D9nukC2.gif)
 
-
+---  
+[Course home](https://github.com/Coderdotnew/intro_web_apps_001) 
